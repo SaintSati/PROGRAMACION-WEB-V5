@@ -1,0 +1,202 @@
+<!-- Edgar Santiago Mogollon Martinez -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro - Plataforma Educativa</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f9;
+            margin: 0;
+        }
+
+        .container {
+            width: 60%;
+            margin: 30px auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        h1, h2, h3 {
+            color: #0a1f44;
+        }
+
+        hr {
+            border: 1px solid #0a1f44;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            transition: 0.2s;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            border-color: #0a1f44;
+            outline: none;
+        }
+
+        /* Validación visual */
+        input:valid {
+            border: 1px solid #2ecc71;
+        }
+
+        input:invalid:focus {
+            border: 1px solid #e74c3c;
+        }
+
+        .error {
+            color: #e74c3c;
+            font-size: 12px;
+            display: none;
+            margin-bottom: 10px;
+        }
+
+        input:invalid:focus + .error {
+            display: block;
+        }
+
+        .inline {
+            width: auto;
+        }
+
+        .buttons {
+            text-align: center;
+        }
+
+        button {
+            background: #0a1f44;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #163a7a;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Registro de Usuario</h1>
+    <p>Completa la siguiente información para crear tu cuenta en la plataforma.</p>
+    <hr>
+
+    <form>
+
+        <h2>Información personal</h2>
+
+        <label for="nombre">Nombre completo:</label>
+        <input id="nombre" type="text" required minlength="3">
+        <div class="error">Mínimo 3 caracteres</div>
+
+        <label for="doc">Documento de identidad:</label>
+        <input id="doc" type="text" pattern="\d{6,15}" required>
+        <div class="error">Solo números (6 a 15 dígitos)</div>
+
+        <label for="fecha">Fecha de registro:</label>
+        <input id="fecha" type="date" required>
+
+        <label for="correo">Correo electrónico:</label>
+        <input id="correo" type="email" required>
+        <div class="error">Correo inválido</div>
+
+        <label for="telefono">Número de celular:</label>
+        <input id="telefono" type="tel" pattern="\d{10}" required>
+        <div class="error">Debe tener 10 dígitos</div>
+
+        <label for="user">Nombre de usuario:</label>
+        <input id="user" type="text" pattern="[a-zA-Z0-9]{4,16}" required>
+        <div class="error">4 a 16 caracteres sin espacios</div>
+
+        <label for="pass">Contraseña:</label>
+        <input id="pass" type="password" pattern="(?=.*[A-Z])(?=.*[0-9]).{8,}" required>
+        <div class="error">Mínimo 8 caracteres, 1 mayúscula y 1 número</div>
+
+        <label for="direccion">Dirección de residencia:</label>
+        <input id="direccion" type="text">
+
+        <label for="hobby">Intereses o hobbies:</label>
+        <input id="hobby" type="text" placeholder="Ej: música, videojuegos, deporte">
+
+        <h3>Experiencia en programación</h3>
+
+        <label>¿Tienes experiencia programando?</label><br>
+        <input class="inline" type="radio" name="exp" value="si"> Sí
+        <input class="inline" type="radio" name="exp" value="no"> No
+
+        <br><br>
+
+        <label>Lenguajes que conoces:</label><br>
+        <input class="inline" type="checkbox" name="lenguajes[]" value="python"> Python
+        <input class="inline" type="checkbox" name="lenguajes[]" value="java"> Java
+        <input class="inline" type="checkbox" name="lenguajes[]" value="js"> JavaScript
+
+        <br><br>
+
+        <label for="nivel">Nivel en programación:</label>
+        <select id="nivel">
+            <option>Selecciona...</option>
+            <option>Básico</option>
+            <option>Intermedio</option>
+            <option>Avanzado</option>
+        </select>
+
+        <h3>Preferencias de aprendizaje</h3>
+
+        <label>¿Te interesa aprender con herramientas interactivas?</label><br>
+        <input class="inline" type="radio" name="interes" value="si"> Sí
+        <input class="inline" type="radio" name="interes" value="no"> No
+
+        <br><br>
+
+        <label>¿Qué te gustaría encontrar en la plataforma?</label><br>
+        <input class="inline" type="checkbox" name="features[]"> Retos
+        <input class="inline" type="checkbox" name="features[]"> Niveles
+        <input class="inline" type="checkbox" name="features[]"> Puntos
+        <input class="inline" type="checkbox" name="features[]"> Historia
+
+        <br><br>
+
+        <label for="tema">Tema que te interesa aprender:</label>
+        <select id="tema">
+            <option>Selecciona...</option>
+            <option>Variables</option>
+            <option>Condicionales</option>
+            <option>Bucles</option>
+            <option>Funciones</option>
+        </select>
+
+        <label for="comentario">Comentarios adicionales:</label>
+        <textarea id="comentario" rows="4"></textarea>
+
+        <div class="buttons">
+            <button type="submit">Enviar</button>
+            <button type="reset">Limpiar</button>
+        </div>
+
+    </form>
+
+</div>
+
+</body>
+</html>
